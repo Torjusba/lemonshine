@@ -10,7 +10,7 @@ material = SubResource("StandardMaterial3D_il1gm")
 size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_il1gm"]
-size = Vector3(1.9527588, 0.7285156, 1)
+size = Vector3(1.9527588, 0.22753906, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqt5c"]
 size = Vector3(2, 1, 1)

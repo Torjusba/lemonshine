@@ -21,7 +21,7 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ig7tw"]
 
-[node name="Node3D" type="Node3D"]
+[node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lquwl")
@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 0.6550178, 0.75561345, 0, -0.75561345, 0.655
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025552273, 0.6445285, 0.75315475)
 
-[node name="Node3D" parent="." instance=ExtResource("2_0xm2m")]
+[node name="FrontDesk" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31014192, 0.11229861, 4.0408096)
 
 [node name="cooking_map" parent="." instance=ExtResource("3_h2yge")]
