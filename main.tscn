@@ -1,26 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=8 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://front_desk.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map.tscn" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1bvp3"]
+sky_material = SubResource("ProceduralSkyMaterial_h2yge")
+
+[sub_resource type="Environment" id="Environment_lquwl"]
+background_mode = 2
+sky = SubResource("Sky_1bvp3")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ig7tw"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
-
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lquwl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.175
+shadow_enabled = true
 
 [node name="TemporaryFloor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TemporaryFloor"]
 shape = SubResource("WorldBoundaryShape3D_ig7tw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TemporaryFloor"]
-mesh = SubResource("PlaneMesh_ig7tw")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8148345, 0.5796937, 0, -0.5796937, 0.8148345, 0, 5.437629, 3.233549)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.786323, 1.8269095)
+transform = Transform3D(1, 0, 0, 0, 0.6550178, 0.75561345, 0, -0.75561345, 0.6550178, 4.3873568, 7.6036, 6.9255314)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025552273, 1.1167167, -0.34384012)
+
+[node name="Node3D" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31014192, 0.11229861, 4.0408096)
+
+[node name="cooking_map" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2931614, -0.4133296, -1.9008751)
