@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	if player_action > 0.5 and player_is_at_desk:
 		if active_customer.name == "Customer":
 			active_customer.is_finished = true
-		else:
+		elif active_customer.name != "NO_CUSTOMER":
 			print("BUG: active customer is not customer:", active_customer)
 
 
