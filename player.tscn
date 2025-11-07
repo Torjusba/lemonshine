@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1e75dpa3j3n3"]
+[gd_scene load_steps=5 format=3 uid="uid://b1e75dpa3j3n3"]
 
 [ext_resource type="Script" uid="uid://dunrv306y5d0b" path="res://player.gd" id="1_4flbx"]
 
@@ -6,12 +6,21 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_4flbx"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
 mesh = SubResource("CapsuleMesh_4flbx")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91176224, -0.26681852)
+mesh = SubResource("SphereMesh_4flbx")
+skeleton = NodePath("../..")
