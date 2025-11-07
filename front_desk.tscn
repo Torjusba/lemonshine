@@ -28,6 +28,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24261498, -1.1267672)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05303955, -0.11749494, 0)
 shape = SubResource("BoxShape3D_il1gm")
 
+[node name="CustomerArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24261498, 1.1027012)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CustomerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05303955, -0.11749494, 0)
+shape = SubResource("BoxShape3D_il1gm")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -35,3 +42,7 @@ shape = SubResource("BoxShape3D_lqt5c")
 
 [connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
 [connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]
+[connection signal="body_entered" from="CustomerArea" to="." method="_on_player_service_area_body_entered"]
+[connection signal="body_entered" from="CustomerArea" to="." method="_on_customer_area_body_entered"]
+[connection signal="body_exited" from="CustomerArea" to="." method="_on_player_service_area_body_exited"]
+[connection signal="body_exited" from="CustomerArea" to="." method="_on_customer_area_body_exited"]
