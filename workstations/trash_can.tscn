@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b53w5u8j4chgh"]
+
+[ext_resource type="Script" uid="uid://bcu0jiyx3e4wt" path="res://workstations/trash_can.gd" id="1_bgvmr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_124ao"]
+height = 1.0107422
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_124ao"]
+albedo_color = Color(0.32, 0.32, 0.32, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bgvmr"]
+material = SubResource("StandardMaterial3D_124ao")
+bottom_radius = 0.4
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgvmr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_alpy1"]
+material = SubResource("StandardMaterial3D_bgvmr")
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.01
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bgvmr"]
+height = 0.07128906
+radius = 0.83154297
+
+[node name="TrashCan" type="Node3D"]
+script = ExtResource("1_bgvmr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_124ao")
+
+[node name="TrashCanBody" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_bgvmr")
+
+[node name="TrashCanHole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49755877, 0)
+mesh = SubResource("CylinderMesh_alpy1")
+
+[node name="PlayerServiceArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
+shape = SubResource("CylinderShape3D_bgvmr")
+
+[connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
+[connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]

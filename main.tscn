@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=14 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://deiebafgu86lt" path="res://map/still.blend" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b2j3lpntjlnxa" path="res://garage_gate.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c53gb6q8o8c11" path="res://map/barrel.blend" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://b53w5u8j4chgh" path="res://workstations/trash_can.tscn" id="9_4c57u"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
@@ -85,3 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39010525, 1.0503125, 5.5056
 [node name="garage_gate" parent="." instance=ExtResource("8_5vw27")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.70820045, 0.47884965, -0.8218119)
+
+[node name="TrashCan" parent="." instance=ExtResource("9_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7220073, 0.08902788, 2.468711)
