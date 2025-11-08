@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=13 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://deiebafgu86lt" path="res://map/still.blend" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b2j3lpntjlnxa" path="res://garage_gate.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c53gb6q8o8c11" path="res://map/barrel.blend" id="8_kek77"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 
@@ -79,3 +80,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.363474, 1.0503125, 5.50564
 
 [node name="CustomerPurchaseLocation" type="Node3D" parent="LevelManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39010525, 1.0503125, 5.505642)
+
+[node name="garage_gate" parent="." instance=ExtResource("8_5vw27")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.64291525, -0.31933975, -0.8218119)
+
+[node name="GarageGateButton" type="Node3D" parent="garage_gate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7881393e-07, 0, 2.8141973)
