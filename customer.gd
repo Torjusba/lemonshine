@@ -5,6 +5,8 @@ class_name Customer3D
 var leave_position: Vector3 = Vector3.ZERO
 @onready var queue_ray_cast: RayCast3D = $QueueRayCast
 @onready var wants_moonshine_sprite: Sprite3D = $WantsMoonshineSprite
+@onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
+
 
 const SPEED = 3.0
 var target_position: Vector3 = Vector3.ZERO
@@ -39,8 +41,16 @@ func _process(delta: float) -> void:
 	if move_vector.length() > to_move_this_tick:
 		move_vector = move_vector.normalized() * to_move_this_tick
 
-	if not queue_ray_cast.is_colliding():
+	if queue_ray_cast.is_colliding():
+		move_vector = Vector3.ZERO
+		
+	if move_vector.is_zero_approx():
+		animation_player.play("Idle")
+	else:
+		animation_player.play("WalkCycle")
 		position += move_vector
+	
+	
 
 	if currently_carrying:
 		target_position = leave_position
