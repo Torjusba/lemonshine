@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://duouy3ccclxex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alxjx"]
+albedo_color = Color(0.31960002, 0.68, 0.60792, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_alxjx"]
+material = SubResource("StandardMaterial3D_alxjx")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.2
+
+[node name="Moonshine" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_alxjx")

@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://deiebafgu86lt" path="res://map/still.blend" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b2j3lpntjlnxa" path="res://garage_gate.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c53gb6q8o8c11" path="res://map/barrel.blend" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://b53w5u8j4chgh" path="res://workstations/trash_can.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://s0e00wacd538" path="res://workstations/still.tscn" id="9_efxa6"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
@@ -56,9 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2931614, -0.4133296, -1.900
 [node name="CoffeeMaker" parent="." instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.983947, 0.06500256, 0.667397)
 
-[node name="still" parent="." instance=ExtResource("7_5vw27")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3432884, -0.35359108, -1.6184031)
-
 [node name="barrel" parent="." instance=ExtResource("8_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0002823, -0.41113305, -1.6440091)
 
@@ -89,3 +86,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7
 
 [node name="TrashCan" parent="." instance=ExtResource("9_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7220073, 0.08902788, 2.468711)
+
+[node name="Still" parent="." instance=ExtResource("9_efxa6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.441442, -0.30961645, -2.1657736)

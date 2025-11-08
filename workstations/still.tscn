@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://s0e00wacd538"]
+
+[ext_resource type="PackedScene" uid="uid://deiebafgu86lt" path="res://map/still.blend" id="1_a5qy4"]
+[ext_resource type="Script" uid="uid://bj5q7sgciqk58" path="res://workstations/still.gd" id="1_i5vuu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sg3ms"]
+albedo_color = Color(0.34, 0.34, 0.34, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5vuu"]
+material = SubResource("StandardMaterial3D_sg3ms")
+size = Vector3(1, 0.1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5qy4"]
+size = Vector3(0.4453125, 0.18383789, 2.0273438)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5vuu"]
+size = Vector3(1, 1.493042, 2)
+
+[node name="Still" type="Node3D"]
+script = ExtResource("1_i5vuu")
+
+[node name="still" parent="." instance=ExtResource("1_a5qy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+
+[node name="StillFloor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i5vuu")
+
+[node name="PlayerServiceArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71945244, 0.27432233, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
+shape = SubResource("BoxShape3D_a5qy4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70722425, 0)
+shape = SubResource("BoxShape3D_i5vuu")
+
+[node name="MoonshinePosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3588856, 0.15582421, -0.21163511)
+
+[node name="MakingMoonshineTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
+[connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]
+[connection signal="timeout" from="MakingMoonshineTimer" to="." method="_on_making_moonshine_timer_timeout"]
