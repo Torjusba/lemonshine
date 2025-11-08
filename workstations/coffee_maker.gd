@@ -15,8 +15,8 @@ const CoffeeCupScene = preload("res://coffee_cup.tscn")
 var original_material: Material = Material.new() # placeholder
 var highlight_material: Material = Material.new() # placeholder
 
-var active_player: Node3D = null
-var coffee_cup: Node3D = null
+var active_player: Player = null
+var coffee_cup: Item3D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,8 +40,7 @@ func _process(_delta: float) -> void:
 	else:
 		mesh_instance_3d.set_surface_override_material(0, original_material)
 
-	var player_action = Input.get_action_strength("player1_action")
-	if player_action > 0.5 and player_interacting:
+	if player_interacting and active_player.is_attempting_action:
 		if active_player.currently_carrying:
 			if active_player.currently_carrying.item_name == "Water":
 				needs_water = false

@@ -4,7 +4,7 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
 const SPEED = 5.0
 var currently_carrying: Item3D = null
-
+var is_attempting_action: bool = false
 
 func pickup(item: Item3D) -> void:
 	if currently_carrying:
@@ -16,6 +16,15 @@ func pickup(item: Item3D) -> void:
 	currently_carrying = item
 	print("Picked up ", currently_carrying)
 
+var action_was_down: bool = false
+func _process(delta: float) -> void:
+	var action_input = Input.get_action_strength("player1_action")
+	var action_is_down: bool = action_input > 0.5
+	
+	is_attempting_action = action_is_down and not action_was_down
+	
+	action_was_down = action_is_down
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

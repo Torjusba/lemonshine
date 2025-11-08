@@ -7,8 +7,8 @@ extends Node3D
 var front_desk_original_material: Material = Material.new() # placeholder
 var highlight_material: Material = Material.new() # placeholder
 
-var active_player: Node3D = null
-var active_customer: Node3D = null
+var active_player: Player = null
+var active_customer: Customer3D = null
 var active_customers = Array()
 
 # Called when the node enters the scene tree for the first time.
@@ -31,8 +31,7 @@ func _process(_delta: float) -> void:
 	else:
 		mesh_instance_3d.set_surface_override_material(0, front_desk_original_material)
 
-	var player_action = Input.get_action_strength("player1_action")
-	if player_action > 0.5 and player_interacting:
+	if player_interacting and active_player.is_attempting_action:
 		if not active_customers.is_empty():
 			if active_player.currently_carrying:
 				print("Handing ", active_player.currently_carrying, " to customer")
