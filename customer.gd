@@ -8,7 +8,7 @@ var leave_position: Vector3 = Vector3.ZERO
 @onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
 
 
-const SPEED = 3.0
+const SPEED = 2.0
 var target_position: Vector3 = Vector3.ZERO
 var currently_carrying: Node3D = null
 var level_manager: LevelManager = null

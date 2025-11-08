@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://devkuuoyfp8kp"]
+
+[ext_resource type="Script" uid="uid://b3km75e5uox7w" path="res://policeman.gd" id="1_egjju"]
+[ext_resource type="PackedScene" uid="uid://du3fa1pr4sp4q" path="res://map/base_character.blend" id="1_m7br2"]
+[ext_resource type="Texture2D" uid="uid://ckgrg3n8lle36" path="res://yellow_warning.png" id="3_egjju"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rlgyh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7br2"]
+albedo_color = Color(0.2394, 0.29147995, 0.63, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_egjju"]
+material = SubResource("StandardMaterial3D_m7br2")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_egjju"]
+
+[node name="Policeman" type="CharacterBody3D"]
+script = ExtResource("1_egjju")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rlgyh")
+
+[node name="CarryingPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51704144, 0.8750682, 0.11551142)
+
+[node name="QueueRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-2, 0, 0)
+
+[node name="base_character" parent="." instance=ExtResource("1_m7br2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="WarningSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 2.9263363, -0.025804281)
+visible = false
+billboard = 1
+texture = ExtResource("3_egjju")
+
+[node name="PoliceHat" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6813852, 0)
+mesh = SubResource("CylinderMesh_egjju")
+
+[node name="WantsMoonshineSprite" type="Sprite3D" parent="."]
+texture = SubResource("CanvasTexture_egjju")

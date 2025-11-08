@@ -6,18 +6,32 @@ class_name LevelManager
 @onready var customer_leave_location: Node3D = $CustomerLeaveLocation
 @onready var customer_purchase_location: Node3D = $CustomerPurchaseLocation
 
+@export var garage_gate: GarageGate
+
 const CustomerScene = preload("res://customer.tscn")
+const PolicemanScene = preload("res://policeman.tscn")
 
 var seconds_to_next_customer: float = 0.0
 var current_money: int = 0;
+
+func lose() -> void:
+	print("YOU LOSE")
+	# TODO proper loss
 
 func add_payment(money: int) -> void:
 	current_money += money
 	score_label.text = "$" + str(current_money)
 
 func spawn_new_customer() -> void:
-	var new_customer: Customer3D = CustomerScene.instantiate()
-	new_customer.name = "Customer"
+	var new_customer: Customer3D = null
+	var should_spawn_policeman: bool = randf() <= 0.5
+	if should_spawn_policeman:
+		new_customer = PolicemanScene.instantiate()
+		new_customer.name = "Customer"
+		new_customer.garage_gate = garage_gate
+	else:
+		new_customer = CustomerScene.instantiate()
+		new_customer.name = "Customer"
 	new_customer.position = customer_spawn_location.position
 	new_customer.target_position = customer_purchase_location.position
 	new_customer.leave_position = customer_leave_location.position
