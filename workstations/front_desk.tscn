@@ -10,7 +10,7 @@ material = SubResource("StandardMaterial3D_il1gm")
 size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r82i"]
-size = Vector3(3.8518982, 0.48828125, 3.1728592)
+size = Vector3(2.8027344, 0.48828125, 1.7366943)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_il1gm"]
 size = Vector3(1.9527588, 0.22753906, 1)
@@ -28,7 +28,7 @@ mesh = SubResource("BoxMesh_lqt5c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24261498, -1.1267672)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02204895, -0.1408776, 1.2290611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02204895, -0.1408776, 0.9982872)
 shape = SubResource("BoxShape3D_4r82i")
 
 [node name="CustomerArea" type="Area3D" parent="."]
