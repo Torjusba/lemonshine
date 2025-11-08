@@ -66,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4293344, 0.06500256, 2.5303
 
 [node name="LevelManager" type="Node3D" parent="." node_paths=PackedStringArray("garage_gate")]
 script = ExtResource("9_kek77")
-garage_gate = NodePath("")
+garage_gate = NodePath("../cooking_map/garage_gate")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LevelManager"]
 
