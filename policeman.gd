@@ -8,7 +8,7 @@ const KINDA_SUSPICIOUS_DISTANCE = 10.0
 const KINDA_SUSPICIOUSNESS_PER_SECOND = 10
 const SUPER_SUSPICIOUS_DISTANCE = 5.0
 const SUPER_SUSPICIOUSNESS_PER_SECOND = 20
-const DEFAULT_SUSPICIOUSNESS_PER_SECOND = -2
+const DEFAULT_SUSPICIOUSNESS_PER_SECOND = -10
 
 @onready var warning_sprite: Sprite3D = $WarningSprite
 
@@ -23,7 +23,7 @@ func purchase(item: Sellable3D, price: int) -> void:
 
 func _process(delta: float) -> void:
 	super._process(delta)
-	var delta_suspiciousness = 0.0
+	var delta_suspiciousness = DEFAULT_SUSPICIOUSNESS_PER_SECOND
 	assert(garage_gate)
 	if garage_gate.is_open:
 		var distance_to_target_position = self.position.distance_to(target_position)
