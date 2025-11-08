@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cp4np6j46nmyb" path="res://garage_gate.gd" id="2_q2urs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q2urs"]
+size = Vector3(0.18383789, 1.9050293, 4.0351563)
 
 [node name="garage_gate" instance=ExtResource("1_qyt5b")]
 script = ExtResource("2_q2urs")
@@ -11,12 +12,10 @@ script = ExtResource("2_q2urs")
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 
-[node name="PlayerServiceArea" type="Area3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51077974, 0.6616385, 2.0521233)
+[node name="StaticBody3D" type="StaticBody3D" parent="Armature/Skeleton3D" index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053888798, -0.95983887, 0)
 shape = SubResource("BoxShape3D_q2urs")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
-[connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]

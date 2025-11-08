@@ -1,8 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-@onready var meshes: Node3D = $Meshes
-
 const SPEED = 5.0
 var currently_carrying: Node3D = null
 

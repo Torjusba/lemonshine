@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=15 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b53w5u8j4chgh" path="res://workstations/trash_can.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://s0e00wacd538" path="res://workstations/still.tscn" id="9_efxa6"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://b667gfgpu5smh" path="res://garage_button.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -81,7 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.363474, -0.5275984, 5.1231
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39010525, -0.5275984, 5.123149)
 
 [node name="garage_gate" parent="." instance=ExtResource("8_5vw27")]
-unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.70820045, 0.47884965, -0.8218119)
 
 [node name="TrashCan" parent="." instance=ExtResource("9_4c57u")]
@@ -89,3 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7220073, 0.08902788, 2.468
 
 [node name="Still" parent="." instance=ExtResource("9_efxa6")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.441442, -0.30961645, -2.1657736)
+
+[node name="GarageButton" parent="." node_paths=PackedStringArray("garage_gate") instance=ExtResource("10_4c57u")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.1464176, 0.58152825, -0.8768848)
+garage_gate = NodePath("../garage_gate")

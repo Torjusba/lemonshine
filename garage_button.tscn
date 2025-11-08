@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b667gfgpu5smh"]
+
+[ext_resource type="Script" uid="uid://2ufdw4jl2phi" path="res://garage_button.gd" id="1_8wr4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ejkb"]
+albedo_color = Color(1, 0.120000005, 0.120000005, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8wr4a"]
+material = SubResource("StandardMaterial3D_2ejkb")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wr4a"]
+size = Vector3(0.9169922, 0.20288086, 0.78125)
+
+[node name="GarageButton" type="Node3D"]
+script = ExtResource("1_8wr4a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8wr4a")
+
+[node name="PlayerServiceArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
+shape = SubResource("BoxShape3D_8wr4a")
+
+[connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
+[connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]
