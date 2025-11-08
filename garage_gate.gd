@@ -8,10 +8,13 @@ var is_open: bool = false
 func open() -> void:
 	if not is_open:
 		animation_player.play("ArmatureAction")
+		collision_shape_3d.disabled = true
 
 func close() -> void:
 	if is_open:
 		animation_player.play_backwards("ArmatureAction")
+		# don't re-enable the collision here, we do that when
+		# the animation is finished
 
 func toggle() -> void:
 	if is_open:
@@ -21,4 +24,5 @@ func toggle() -> void:
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	is_open = !is_open
-	collision_shape_3d.disabled = is_open
+	if not is_open:
+		collision_shape_3d.disabled = false

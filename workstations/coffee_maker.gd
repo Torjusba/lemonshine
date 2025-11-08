@@ -4,6 +4,7 @@ extends Node3D
 @onready var player_service_area: Area3D = $PlayerServiceArea
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 @onready var making_coffee_timer: Timer = $MakingCoffeeTimer
+@onready var brewing_particles: CPUParticles3D = $BrewingParticles
 
 var needs_water: bool = true
 var needs_coffee_beans: bool = false
@@ -64,6 +65,7 @@ func _process(_delta: float) -> void:
 	if can_make_coffee and making_coffee_timer.is_stopped():
 		print("DEBUG: starting coffee timer")
 		making_coffee_timer.start()  # TODO require an action with water and coffee beans
+		brewing_particles.emitting = true
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
@@ -84,3 +86,4 @@ func _on_making_coffee_timer_timeout() -> void:
 	print("Made a cup of coffee: ", coffee_cup)
 	needs_coffee_beans = true
 	needs_water = true
+	brewing_particles.emitting = false

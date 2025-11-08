@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx5vl7c3gps0n"]
+[gd_scene load_steps=11 format=3 uid="uid://cx5vl7c3gps0n"]
 
 [ext_resource type="Script" uid="uid://dhv55we4dqoav" path="res://workstations/coffee_maker.gd" id="1_0n7hs"]
 [ext_resource type="PackedScene" uid="uid://pu6ebmrp5rxn" path="res://map/coffee_brewer.blend" id="2_jd0cl"]
@@ -15,6 +15,15 @@ material = SubResource("StandardMaterial3D_il1gm")
 size = Vector3(2.40625, 0.14477539, 2.0861816)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqt5c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip17r"]
+transparency = 1
+albedo_color = Color(0.336, 0.6271999, 0.7, 0.18431373)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lv46e"]
+material = SubResource("StandardMaterial3D_ip17r")
+radius = 0.1
+height = 0.2
 
 [node name="CoffeeMaker" type="Node3D"]
 script = ExtResource("1_0n7hs")
@@ -55,6 +64,18 @@ pixel_size = 0.05
 billboard = 1
 texture_filter = 0
 texture = ExtResource("4_ip17r")
+
+[node name="BrewingParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09358168, 1.0370469, -0.24181122)
+emitting = false
+lifetime = 0.5
+randomness = 0.22
+lifetime_randomness = 0.71
+mesh = SubResource("SphereMesh_lv46e")
+spread = 106.24
+gravity = Vector3(0, 3, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 0.2
 
 [connection signal="timeout" from="MakingCoffeeTimer" to="." method="_on_making_coffee_timer_timeout"]
 [connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
