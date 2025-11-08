@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5xmp4jh8oiey"]
+
+[ext_resource type="PackedScene" uid="uid://nji0wcc43ign" path="res://map/map_placeables/cooking_map.blend" id="1_c7s6e"]
+[ext_resource type="Material" uid="uid://d3xpsd4e5vn4d" path="res://map/garage/garage_floor.tres" id="2_a0dt8"]
+[ext_resource type="Material" uid="uid://c101sq7mjdoyj" path="res://map/roof.tres" id="2_ap8vc"]
+[ext_resource type="PackedScene" uid="uid://dncylhnic31l" path="res://map/map_placeables/workbench.blend" id="3_7lyie"]
+[ext_resource type="PackedScene" path="res://workstations/still.tscn" id="4_5jdw0"]
+[ext_resource type="PackedScene" path="res://workstations/trash_can.tscn" id="5_kxmgb"]
+[ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_e8e5r"]
+[ext_resource type="PackedScene" uid="uid://b6arbnitel6lp" path="res://workstations/corn_shelf.tscn" id="7_5jdw0"]
+[ext_resource type="PackedScene" uid="uid://cyus0cmp0tjw5" path="res://workstations/bottle_shelf.tscn" id="8_kxmgb"]
+[ext_resource type="PackedScene" path="res://workstations/item_barrel.tscn" id="9_e8e5r"]
+[ext_resource type="Texture2D" uid="uid://b3ncbc5od4dfj" path="res://ingredients/needs_coffee.png" id="10_k8tny"]
+[ext_resource type="PackedScene" uid="uid://83lv26pm1bo1" path="res://ingredients/coffee_beans.tscn" id="11_ap8vc"]
+[ext_resource type="Texture2D" uid="uid://20xdd5h4oe5i" path="res://ingredients/needs_water.png" id="12_wnugf"]
+[ext_resource type="PackedScene" uid="uid://bbsga8uo1b2lq" path="res://ingredients/water.tscn" id="13_58xwf"]
+[ext_resource type="PackedScene" uid="uid://b2j3lpntjlnxa" path="res://map/garage/garage_gate.tscn" id="15_wnugf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0dt8"]
+
+[node name="cooking_map" instance=ExtResource("1_c7s6e")]
+
+[node name="GarageWalls" parent="." index="2"]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 2.9999998, 0, 0, -5)
+
+[node name="GarageRoof" parent="." index="4"]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 2.9999998, 0, 0, -5)
+surface_material_override/0 = ExtResource("2_ap8vc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -4)
+material_override = ExtResource("2_a0dt8")
+mesh = SubResource("PlaneMesh_a0dt8")
+
+[node name="workbench" parent="." index="6" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+
+[node name="workbench2" parent="." index="7" instance=ExtResource("3_7lyie")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -7)
+
+[node name="workbench3" parent="." index="8" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
+
+[node name="workbench4" parent="." index="9" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+
+[node name="Still" parent="." index="10" instance=ExtResource("4_5jdw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.3999999)
+
+[node name="TrashCan" parent="." index="11" instance=ExtResource("5_kxmgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -4)
+
+[node name="CoffeeMaker" parent="." index="12" instance=ExtResource("6_e8e5r")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 1, -5.4)
+
+[node name="empty_shelf" parent="." index="13" instance=ExtResource("7_5jdw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="bottle_shelf" parent="." index="14" instance=ExtResource("8_kxmgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="workbench5" parent="." index="15" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+
+[node name="workbench6" parent="." index="16" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
+[node name="workbench7" parent="." index="17" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="workbench8" parent="." index="18" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="workbench9" parent="." index="19" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="workbench10" parent="." index="20" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="workbench11" parent="." index="21" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="workbench13" parent="." index="22" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="workbench14" parent="." index="23" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="workbench15" parent="." index="24" instance=ExtResource("3_7lyie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+
+[node name="ItemBarrel" parent="." index="25" instance=ExtResource("9_e8e5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+texture = ExtResource("10_k8tny")
+item_scene = ExtResource("11_ap8vc")
+
+[node name="ItemBarrel2" parent="." index="26" instance=ExtResource("9_e8e5r")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, -2)
+texture = ExtResource("12_wnugf")
+item_scene = ExtResource("13_58xwf")
+
+[node name="garage_gate" parent="." index="27" instance=ExtResource("15_wnugf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -1)

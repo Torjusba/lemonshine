@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://characters/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map/map_placeables/map.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map/map.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c2pgi1vch068a" path="res://jail_cell_background.png" id="7_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b2j3lpntjlnxa" path="res://map/garage/garage_gate.tscn" id="8_5vw27"]

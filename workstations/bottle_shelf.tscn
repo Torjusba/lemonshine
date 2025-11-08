@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyus0cmp0tjw5"]
+
+[ext_resource type="PackedScene" uid="uid://352d6lnv4b5c" path="res://map/map_placeables/bottle_shelf.blend" id="1_27pkh"]
+
+[node name="bottle_shelf" instance=ExtResource("1_27pkh")]
