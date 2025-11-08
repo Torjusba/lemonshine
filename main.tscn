@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=21 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://s0e00wacd538" path="res://workstations/still.tscn" id="9_efxa6"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b667gfgpu5smh" path="res://garage_button.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dpwot1utup8mb" path="res://workstations/item_barrel.tscn" id="11_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://b3ncbc5od4dfj" path="res://needs_coffee.png" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://83lv26pm1bo1" path="res://coffee_beans.tscn" id="13_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://20xdd5h4oe5i" path="res://needs_water.png" id="14_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bbsga8uo1b2lq" path="res://water.tscn" id="15_2cqfq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -58,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31014192, 0.11229861, 4.040
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2931614, -0.4133296, -1.9008751)
 
 [node name="CoffeeMaker" parent="." instance=ExtResource("6_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.983947, 0.06500256, 0.667397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4293344, 0.06500256, 2.530384)
 
 [node name="LevelManager" type="Node3D" parent="." node_paths=PackedStringArray("garage_gate")]
 script = ExtResource("9_kek77")
@@ -158,5 +163,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.4
 [node name="GarageButton" parent="." node_paths=PackedStringArray("garage_gate") instance=ExtResource("10_4c57u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.1464176, 0.58152825, -0.8768848)
 garage_gate = NodePath("../garage_gate")
+
+[node name="CoffeeBeansItemBarrel" parent="." instance=ExtResource("11_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9283237, -0.3390723, 0.29791784)
+texture = ExtResource("12_w48qg")
+item_scene = ExtResource("13_ycdy4")
+
+[node name="ItemBarrel" parent="." instance=ExtResource("11_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3527656, -0.4158954, 0.11604023)
+texture = ExtResource("14_vivmo")
+item_scene = ExtResource("15_2cqfq")
 
 [connection signal="pressed" from="LevelManager/LoseCanvas/ColorRect/ReplayButton" to="LevelManager" method="_on_replay_button_pressed"]

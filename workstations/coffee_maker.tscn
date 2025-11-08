@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx5vl7c3gps0n"]
+[gd_scene load_steps=9 format=3 uid="uid://cx5vl7c3gps0n"]
 
 [ext_resource type="Script" uid="uid://dhv55we4dqoav" path="res://workstations/coffee_maker.gd" id="1_0n7hs"]
 [ext_resource type="PackedScene" uid="uid://pu6ebmrp5rxn" path="res://map/coffee_brewer.blend" id="2_jd0cl"]
+[ext_resource type="Texture2D" uid="uid://20xdd5h4oe5i" path="res://needs_water.png" id="3_uyjwf"]
+[ext_resource type="Texture2D" uid="uid://b3ncbc5od4dfj" path="res://needs_coffee.png" id="4_ip17r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il1gm"]
 albedo_color = Color(0.5370987, 0.5370987, 0.5370987, 1)
@@ -39,6 +41,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0046976507, 0.5879359, 0.2
 
 [node name="coffee_brewer" parent="." instance=ExtResource("2_jd0cl")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0.4574731, 0.5, -0.2387298)
+
+[node name="NeedsWaterSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51039445, 1.7308519, 0)
+pixel_size = 0.05
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_uyjwf")
+
+[node name="NeedsCoffeeSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522388, 1.7308519, 0)
+pixel_size = 0.05
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_ip17r")
 
 [connection signal="timeout" from="MakingCoffeeTimer" to="." method="_on_making_coffee_timer_timeout"]
 [connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]

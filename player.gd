@@ -3,10 +3,10 @@ class_name Player
 
 @onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
 const SPEED = 5.0
-var currently_carrying: Node3D = null
+var currently_carrying: Item3D = null
 
 
-func pickup(item: Node3D) -> void:
+func pickup(item: Item3D) -> void:
 	if currently_carrying:
 		print("Player can't pickup, is already carrying")
 		return

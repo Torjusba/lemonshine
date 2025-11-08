@@ -1,3 +1,3 @@
-extends Sellable3D
+extends Item3D
 
 var item_name: String = "Moonshine"

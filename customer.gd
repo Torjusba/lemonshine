@@ -14,7 +14,7 @@ var currently_carrying: Node3D = null
 var level_manager: LevelManager = null
 var wants_moonshine: bool = false
 
-func purchase(item: Sellable3D, price: int) -> void:
+func purchase(item: Item3D, price: int) -> void:
 	if not level_manager:
 		print("BUG: Customer purchase() without LevelManager")
 	if not item:

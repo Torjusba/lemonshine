@@ -16,7 +16,7 @@ var garage_gate: GarageGate = null
 var suspiciousness_pct: float = 0.0
 
 
-func purchase(item: Sellable3D, price: int) -> void:
+func purchase(item: Item3D, price: int) -> void:
 	if item.item_name == "Moonshine":
 		level_manager.lose("You sold moonshine to a cop")
 	super.purchase(item, price)

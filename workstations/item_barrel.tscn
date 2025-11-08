@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpwot1utup8mb"]
+
+[ext_resource type="PackedScene" uid="uid://c53gb6q8o8c11" path="res://map/barrel.blend" id="1_lx5kb"]
+[ext_resource type="Script" uid="uid://bu1blutkmf6gl" path="res://workstations/item_barrel.gd" id="1_yuc0e"]
+[ext_resource type="Texture2D" uid="uid://20xdd5h4oe5i" path="res://needs_water.png" id="2_8vj4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wyqw"]
+albedo_color = Color(0.59, 0.59, 0.59, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8wyqw"]
+material = SubResource("StandardMaterial3D_8wyqw")
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vj4s"]
+size = Vector3(1.5507813, 0.31860352, 1.78125)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g3l1p"]
+height = 1.0
+radius = 0.51953125
+
+[node name="ItemBarrel" type="Node3D"]
+script = ExtResource("1_yuc0e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8wyqw")
+
+[node name="barrel" parent="." instance=ExtResource("1_lx5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.507)
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_8vj4s")
+
+[node name="PlayerServiceArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
+shape = SubResource("BoxShape3D_8vj4s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_g3l1p")
+
+[connection signal="body_entered" from="PlayerServiceArea" to="." method="_on_player_service_area_body_entered"]
+[connection signal="body_exited" from="PlayerServiceArea" to="." method="_on_player_service_area_body_exited"]
