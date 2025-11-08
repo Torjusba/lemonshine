@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 			active_player.pickup(coffee_cup)
 			print("CoffeeMaker hands cup to player")
 			making_coffee_timer.start()  # TODO require an action with water and coffee beans
-
+			coffee_cup = null
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
