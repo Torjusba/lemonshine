@@ -8,12 +8,14 @@ const SPEED = 3.0
 var target_position: Vector3 = Vector3.ZERO
 var currently_carrying: Node3D = null
 
-func purchase(item: Node3D) -> void:
+func purchase(item: Node3D, price: int) -> void:
 	if not item:
 		return
 	item.reparent($CarryingPosition, false)
 	item.position = Vector3.ZERO
 	currently_carrying = item
+	
+	%LevelManager.add_payment(price)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

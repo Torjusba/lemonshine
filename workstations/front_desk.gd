@@ -39,7 +39,8 @@ func _process(_delta: float) -> void:
 				print("BUG: active_customer is not Customer")
 			if active_player.currently_carrying:
 				print("Handing ", active_player.currently_carrying, " to customer")
-				active_customer.purchase(active_player.currently_carrying)
+				active_customer.purchase(active_player.currently_carrying, 10)
+				active_player.currently_carrying = null
 
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
