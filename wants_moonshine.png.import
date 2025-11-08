@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://043hqs0pwlwx"
-path.s3tc="res://.godot/imported/moon.png-49ba8c00494e5b6378347e406dc1c5eb.s3tc.ctex"
+uid="uid://c5qqu1l8imxh4"
+path.s3tc="res://.godot/imported/wants_moonshine.png-09e3ba9c71f246f23303d17bd5e4098d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://moon.png"
-dest_files=["res://.godot/imported/moon.png-49ba8c00494e5b6378347e406dc1c5eb.s3tc.ctex"]
+source_file="res://wants_moonshine.png"
+dest_files=["res://.godot/imported/wants_moonshine.png-09e3ba9c71f246f23303d17bd5e4098d.s3tc.ctex"]
 
 [params]
 
