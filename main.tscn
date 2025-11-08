@@ -72,13 +72,13 @@ offset_bottom = 35.0
 text = "$0"
 
 [node name="CustomerSpawnLocation" type="Node3D" parent="LevelManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.634705, 1.0503125, 5.505642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.634705, -0.5275984, 5.123149)
 
 [node name="CustomerLeaveLocation" type="Node3D" parent="LevelManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.363474, 1.0503125, 5.505642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.363474, -0.5275984, 5.123149)
 
 [node name="CustomerPurchaseLocation" type="Node3D" parent="LevelManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39010525, 1.0503125, 5.505642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39010525, -0.5275984, 5.123149)
 
 [node name="garage_gate" parent="." instance=ExtResource("8_5vw27")]
 unique_name_in_owner = true
