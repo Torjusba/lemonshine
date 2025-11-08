@@ -20,9 +20,9 @@ func _ready() -> void:
 	highlight_material.emission = Color(1, 1, 0.4)
 
 func _looks_at_desk(body: Node3D) -> bool:
-	var pos_vec = front_desk.global_position - body.global_position
+	var pos_vec = (front_desk.global_position - body.global_position).normalized()
 	var direction = (-body.global_transform.basis.z) # Global forward direction
-	return pos_vec.dot(direction) > 0
+	return pos_vec.dot(direction) > 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
