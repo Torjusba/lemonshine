@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=22 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
@@ -30,6 +30,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ig7tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
 font_size = 60

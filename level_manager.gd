@@ -21,6 +21,8 @@ var current_money: int = 0;
 @onready var lose_canvas: CanvasLayer = $LoseCanvas
 @onready var loss_reason_label: Label = $LoseCanvas/ColorRect/LossReasonLabel
 
+var customer_spawn_area_occupied: int = 0
+
 func lose(reason: String = "") -> void:
 	loss_reason_label.text = reason
 	lose_canvas.visible = true
@@ -55,7 +57,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if seconds_to_next_customer <= 0.0:
+	if seconds_to_next_customer <= 0.0 and not customer_spawn_area_occupied:
 		print("Spawning new customer")
 		spawn_new_customer()
 		seconds_to_next_customer = BASE_CUSTOMER_DELAY + randf() * CUSTOMER_RANDOM_DELAY
@@ -66,3 +68,11 @@ func _process(delta: float) -> void:
 func _on_replay_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	Engine.time_scale = 1.0
+
+
+func _on_customer_spawn_area_body_entered(_body: Node3D) -> void:
+	customer_spawn_area_occupied += 1
+
+
+func _on_customer_spawn_area_body_exited(_body: Node3D) -> void:
+	customer_spawn_area_occupied -= 1
