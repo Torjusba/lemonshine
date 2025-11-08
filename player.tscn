@@ -24,4 +24,9 @@ bones/2/rotation = Quaternion(-0.98994404, -1.00473336e-07, -2.468599e-07, 0.141
 bones/7/position = Vector3(-1.11215975e-07, 0.0478341, 0.52572024)
 bones/7/rotation = Quaternion(8.543888e-08, 0.14146008, 0.98994404, -3.6204778e-08)
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="base_character/Armature/Skeleton3D" index="8"]
+transform = Transform3D(-1.1920929e-07, 0, 1, 0, 0.99999994, 0, -1, 0, -1.1920929e-07, 2.5400574e-22, 0.9287162, -2.5400574e-22)
+bone_name = "Bone.002"
+bone_idx = 4
+
 [editable path="base_character"]
