@@ -24,7 +24,6 @@ target_position = Vector3(-2, 0, 0)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="WantsMoonshineSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 2.9263363, -1.5512562)
-visible = false
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.41102028, 2.2110915, -0.54005754)
 billboard = 1
 texture = ExtResource("3_f7asb")
