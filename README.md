@@ -5,6 +5,6 @@ Try to make enough money within the time limit, while avoiding detection from co
 
 # Gameplay demo
 ## Base gameplay
-[](base_gameplay.mp4)
+[](https://github.com/user-attachments/assets/995aa497-da35-4aae-ab5f-3103b778f246)
 ## Cop interaction
-[](cop_interaction.mp4)
+[](https://github.com/user-attachments/assets/cdd87450-925d-427f-8508-14168e6536a4)
