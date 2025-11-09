@@ -44,13 +44,14 @@ func spawn_new_customer() -> void:
 	else:
 		new_customer = CustomerScene.instantiate()
 		new_customer.name = "Customer"
+		new_customer.wants_moonshine = randf() <= WANTS_MOONSHINE_RATE
+
 
 	new_customer.camera = camera
 	new_customer.position = customer_spawn_location.position
 	new_customer.target_position = customer_purchase_location.position
 	new_customer.leave_position = customer_leave_location.position
 	new_customer.level_manager = self
-	new_customer.wants_moonshine = randf() <= WANTS_MOONSHINE_RATE
 	add_child(new_customer)
 
 # Called when the node enters the scene tree for the first time.

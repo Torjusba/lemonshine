@@ -13,7 +13,6 @@ const DEFAULT_SUSPICIOUSNESS_PER_SECOND = -10
 var garage_gate: GarageGate = null
 var suspiciousness_pct: float = 0.0
 
-
 func purchase(item: Item3D, price: int) -> void:
 	if item.item_name == "Moonshine":
 		level_manager.lose("You sold moonshine to a cop")
