@@ -159,7 +159,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.8
 garage_gate = NodePath("../cooking_map/garage_gate")
 
 [node name="CoffeeBeansItemBarrel" parent="." instance=ExtResource("11_ycdy4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.2001386, -0.33907324, -0.21444607)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.2001386, -0.33907324, 0.39863396)
 texture = ExtResource("12_w48qg")
 item_scene = ExtResource("13_ycdy4")
 
