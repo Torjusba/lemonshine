@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcqpwlmumhgpi"]
+[gd_scene load_steps=24 format=3 uid="uid://dcqpwlmumhgpi"]
 
 [ext_resource type="PackedScene" uid="uid://b1e75dpa3j3n3" path="res://characters/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h6cd18sk61m6" path="res://workstations/front_desk.tscn" id="2_0xm2m"]
@@ -38,6 +38,10 @@ font_size = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
 bg_color = Color(0.12535256, 0.7007459, 0.53527576, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w48qg"]
+font_size = 32
+font_color = Color(0.10720002, 0.67, 0.19161993, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 
@@ -121,6 +125,15 @@ anchor_right = 0.5420168
 anchor_bottom = 0.8
 text = "Time left"
 metadata/_edit_use_anchors_ = true
+
+[node name="MoneyGainedLabel" type="Label" parent="LevelManager/CanvasLayer"]
+visible = false
+offset_left = 967.0
+offset_top = 57.0
+offset_right = 1030.0
+offset_bottom = 102.0
+text = "+ $1"
+label_settings = SubResource("LabelSettings_w48qg")
 
 [node name="CustomerSpawnLocation" type="Node3D" parent="LevelManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.634705, -0.5275984, 5.123149)
@@ -206,6 +219,9 @@ metadata/_edit_use_anchors_ = true
 wait_time = 180.0
 one_shot = true
 
+[node name="MoneyGainedLabelTimer" type="Timer" parent="LevelManager"]
+one_shot = true
+
 [node name="TrashCan" parent="." instance=ExtResource("9_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7018006, 0.08902788, 0.38175058)
 
@@ -227,5 +243,6 @@ item_scene = ExtResource("15_2cqfq")
 [connection signal="body_exited" from="LevelManager/CustomerSpawnLocation/Area3D" to="LevelManager" method="_on_customer_spawn_area_body_exited"]
 [connection signal="pressed" from="LevelManager/LoseCanvas/ColorRect/ReplayButton" to="LevelManager" method="_on_replay_button_pressed"]
 [connection signal="timeout" from="LevelManager/RoundLimitTimer" to="LevelManager" method="_on_round_limit_timer_timeout"]
+[connection signal="timeout" from="LevelManager/MoneyGainedLabelTimer" to="LevelManager" method="_on_money_gained_label_timer_timeout"]
 
 [editable path="cooking_map"]

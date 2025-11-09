@@ -29,6 +29,7 @@ const TIME_LIMIT_SECONDS: int = 180
 @onready var timelimit_progressbar: ProgressBar = $CanvasLayer/ProgressBar
 @onready var iron_bars: TextureRect = $LoseCanvas/IronBars
 @onready var you_lose_label: Label = $LoseCanvas/ColorRect/YouLoseLabel
+@onready var money_gained_label: Label = $CanvasLayer/MoneyGainedLabel
 
 var customer_spawn_area_occupied: int = 0
 
@@ -47,10 +48,16 @@ func win() -> void:
 	lose_canvas.visible = true
 	Engine.time_scale = 0
 
+@onready var money_gained_label_timer: Timer = $MoneyGainedLabelTimer
 
 func add_payment(money: int) -> void:
 	current_money += money
 	score_label.text = "$" + str(current_money)  + " / $" + str(MONEY_NEEDED_TO_WIN)
+	if money > 0:
+		money_gained_label.text = "+ $" + str(money)
+		money_gained_label.visible = true
+		money_gained_label_timer.start()
+
 
 func spawn_new_customer() -> void:
 	var new_customer: Customer3D = null
@@ -108,3 +115,7 @@ func _on_customer_spawn_area_body_exited(_body: Node3D) -> void:
 
 func _on_round_limit_timer_timeout() -> void:
 	lose("You did not make enough money in time", false)
+
+
+func _on_money_gained_label_timer_timeout() -> void:
+	money_gained_label.visible = false
