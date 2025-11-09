@@ -16,6 +16,7 @@ var target_position: Vector3 = Vector3.ZERO
 var currently_carrying: Node3D = null
 var level_manager: LevelManager = null
 var wants_moonshine: bool = false
+var is_unhappy: bool = false
 
 func purchase(item: Item3D, price: int) -> void:
 	if not level_manager:
@@ -26,6 +27,9 @@ func purchase(item: Item3D, price: int) -> void:
 	var wanted_and_got_coffee = not wants_moonshine and item.item_name == "Coffee"
 
 	var got_what_they_want: bool = wanted_and_got_coffee or wanted_and_got_moonshine
+	
+	if not got_what_they_want:
+		is_unhappy = true
 	
 	item.reparent($CarryingPosition, false)
 	item.position = Vector3.ZERO
@@ -50,7 +54,10 @@ func _process(delta: float) -> void:
 	if move_vector.is_zero_approx():
 		animation_player.play("Idle")
 	else:
-		animation_player.play("WalkCycle")
+		if is_unhappy:
+			animation_player.play("ShakeHead")
+		else:
+			animation_player.play("WalkCycle")
 		position += move_vector
 	
 	if (camera):
