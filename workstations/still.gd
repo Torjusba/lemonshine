@@ -43,25 +43,25 @@ func _process(_delta: float) -> void:
 		elif moonshine:
 			active_player.pickup(moonshine)
 			moonshine = null
-	
+
 	if making_moonshine_timer.is_stopped() and not needs_water:
 		making_moonshine_timer.start()
 
 	$NeedsWaterSprite.visible = needs_water
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = body
 
 
 func _on_player_service_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = null
 
 
 func _on_making_moonshine_timer_timeout() -> void:
 	if moonshine:
-		return  # already have a cup
+		return # already have a cup
 	moonshine = MoonshineScene.instantiate()
 	add_child(moonshine)
 	moonshine.global_position = $MoonshinePosition.global_position

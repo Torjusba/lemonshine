@@ -24,7 +24,7 @@ func _looks_at_this(body: Node3D) -> bool:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# TODO tune _looks_at_this, didn't work well for this small button
-	var player_interacting = active_player #  and _looks_at_this(active_player)
+	var player_interacting = active_player # and _looks_at_this(active_player)
 	if player_interacting:
 		mesh_instance_3d.set_surface_override_material(0, highlight_material)
 	else:
@@ -36,11 +36,11 @@ func _process(_delta: float) -> void:
 			print("BUG: tried to toggle null garage gate")
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		print("player in front of door")
 		active_player = body
 
 func _on_player_service_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		print("player left the door")
 		active_player = null

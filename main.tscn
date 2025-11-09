@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map/map.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c2pgi1vch068a" path="res://jail_cell_background.png" id="7_efxa6"]
-[ext_resource type="PackedScene" uid="uid://b53w5u8j4chgh" path="res://workstations/trash_can.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" path="res://workstations/trash_can.tscn" id="9_4c57u"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b667gfgpu5smh" path="res://map/garage/garage_button.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dpwot1utup8mb" path="res://workstations/item_barrel.tscn" id="11_ycdy4"]
@@ -70,8 +70,9 @@ unique_name_in_owner = true
 transform = Transform3D(-3.7855173e-08, 0.8428377, -0.53816783, 2.1855685e-08, 0.53816783, 0.8428377, 1, 2.0143741e-08, -3.879323e-08, -3.6126432, 6.6678643, -3.1123466)
 size = 9.039969
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Player1" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.025552273, -0.409451, 1.5179462)
+device_id = 0
 
 [node name="FrontDesk" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21660268, 0.11229861, 4.0408096)
@@ -238,6 +239,11 @@ item_scene = ExtResource("13_ycdy4")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.2126613, -0.41589493, -1.3451841)
 texture = ExtResource("14_vivmo")
 item_scene = ExtResource("15_2cqfq")
+
+[node name="Player2" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+player_id = 2
+device_id = 1
 
 [connection signal="body_entered" from="LevelManager/CustomerSpawnLocation/Area3D" to="LevelManager" method="_on_customer_spawn_area_body_entered"]
 [connection signal="body_exited" from="LevelManager/CustomerSpawnLocation/Area3D" to="LevelManager" method="_on_customer_spawn_area_body_exited"]

@@ -1,6 +1,9 @@
 extends CharacterBody3D
 class_name Player
 
+@export var player_id: int = 1
+@export var device_id: int = -1 # >=0 means use raw gamepad axes for movement
+
 @onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
 const SPEED = 5.0
 const DASH_SPEED := 15.0
@@ -20,8 +23,31 @@ func pickup(item: Item3D) -> void:
 	print("Picked up ", currently_carrying)
 
 var action_was_down: bool = false
+
+func _get_action_name(base: String) -> String:
+	return "%s_%d" % [base, player_id]
+
+func _get_move_input() -> Vector2:
+	if device_id >= 0 and Input.is_joy_known(device_id):
+		var x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
+		var y = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_Y)
+		return Vector2(x, y)
+	return Input.get_vector(_get_action_name("left"), _get_action_name("right"), _get_action_name("up"), _get_action_name("down"))
+
+func _is_dash_pressed() -> bool:
+	if device_id >= 0 and Input.is_joy_known(device_id):
+		return Input.is_joy_button_pressed(device_id, JOY_BUTTON_A) and %DashTimer.is_stopped()
+	return Input.is_action_just_pressed(_get_action_name("dash")) and %DashTimer.is_stopped()
+
+func _is_action_pressed() -> float:
+	if device_id >= 0 and Input.is_joy_known(device_id):
+		if Input.is_joy_button_pressed(device_id, JOY_BUTTON_X):
+			return 1.0
+		return 0.0
+	return Input.get_action_strength(_get_action_name("action"))
+
 func _process(_delta: float) -> void:
-	var action_input = Input.get_action_strength("player1_action")
+	var action_input = _is_action_pressed()
 	var action_is_down: bool = action_input > 0.5
 
 	is_attempting_action = action_is_down and not action_was_down
@@ -35,8 +61,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Dash input -> use %DashTimer as cooldown only
-	if Input.is_action_just_pressed("player1_dash") and %DashTimer.is_stopped():
-		%DashTimer.start() # starts cooldown
+	if _is_dash_pressed():
+		%DashTimer.start()
 		dash_active_time = DASH_ACTIVE_DURATION
 		var forward = - transform.basis.z
 		forward.y = 0
@@ -56,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		direction = forward
 	else:
 		# Normal movement
-		var input_dir := Input.get_vector("player1_left", "player1_right", "player1_up", "player1_down")
+		var input_dir := _get_move_input()
 		var camera_forward = -%MainSceneCamera.global_transform.basis.z
 		var camera_right = %MainSceneCamera.global_transform.basis.x
 		camera_forward.y = 0

@@ -50,15 +50,14 @@ func _process(_delta: float) -> void:
 				active_player.currently_carrying = null
 
 
-
 func _on_player_service_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = body
 		print("Player entered desk")
 
 
 func _on_player_service_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = null
 		print("Player left desk")
 

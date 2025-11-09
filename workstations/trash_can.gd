@@ -8,7 +8,7 @@ var original_material: Material = Material.new() # placeholder
 var highlight_material: Material = Material.new() # placeholder
 
 
-var active_player: Node3D = null
+var active_player: Player = null
 var coffee_cup: Node3D = null
 
 # Called when the node enters the scene tree for the first time.
@@ -32,17 +32,16 @@ func _process(_delta: float) -> void:
 	else:
 		trash_can_body.set_surface_override_material(0, original_material)
 
-	var player_action = Input.get_action_strength("player1_action")
-	if player_action > 0.5 and player_interacting:
+	if player_interacting and active_player.is_attempting_action:
 		if active_player.currently_carrying:
 			active_player.currently_carrying.queue_free()
 			active_player.currently_carrying = null
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
-	if body is Player:
+	if body.name.begins_with("Player"):
 		active_player = body
 
 
 func _on_player_service_area_body_exited(body: Node3D) -> void:
-	if body is Player:
+	if body.name.begins_with("Player"):
 		active_player = null

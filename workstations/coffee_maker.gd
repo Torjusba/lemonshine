@@ -64,18 +64,18 @@ func _process(_delta: float) -> void:
 		brewing_particles.emitting = true
 
 func _on_player_service_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = body
 
 
 func _on_player_service_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name.begins_with("Player"):
 		active_player = null
 
 
 func _on_making_coffee_timer_timeout() -> void:
 	if coffee_cup:
-		return  # already have a cup
+		return # already have a cup
 	coffee_cup = CoffeeCupScene.instantiate()
 	add_child(coffee_cup)
 	coffee_cup.global_position = $CoffeeCupPosition.global_position
