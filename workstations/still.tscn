@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_sg3ms")
 size = Vector3(1, 0.1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5qy4"]
-size = Vector3(0.4453125, 0.18383789, 2.0273438)
+size = Vector3(1.9528809, 0.18383789, 2.0273438)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5vuu"]
 size = Vector3(1, 1.493042, 2)
@@ -30,6 +30,7 @@ mesh = SubResource("BoxMesh_i5vuu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71945244, 0.27432233, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerServiceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7537842, 0, 0)
 shape = SubResource("BoxShape3D_a5qy4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
