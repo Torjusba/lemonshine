@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://devkuuoyfp8kp"]
+[gd_scene load_steps=6 format=3 uid="uid://devkuuoyfp8kp"]
 
 [ext_resource type="Script" uid="uid://b3km75e5uox7w" path="res://characters/NPCs/policeman.gd" id="1_egjju"]
 [ext_resource type="PackedScene" uid="uid://du3fa1pr4sp4q" path="res://characters/base_character.blend" id="1_m7br2"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b4r7jpthuufyo" path="res://characters/cosmetics/police_hat.blend" id="4_rlgyh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rlgyh"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_egjju"]
 
 [node name="Policeman" type="CharacterBody3D"]
 script = ExtResource("1_egjju")
@@ -34,13 +32,10 @@ bone_idx = 1
 [node name="police_hat" parent="base_character/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_rlgyh")]
 transform = Transform3D(-1.1920929e-07, 0, -1, 0, 1.0000001, 0, 1, 0, -1.1920929e-07, -3.6321638e-22, 0.9494919, -3.6321643e-22)
 
-[node name="WarningSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 2.9263363, -0.025804281)
-visible = false
+[node name="StatusSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.0020158887, 2.3902256, 0.010101795)
+pixel_size = 0.007
 billboard = 1
 texture = ExtResource("3_egjju")
-
-[node name="WantsMoonshineSprite" type="Sprite3D" parent="."]
-texture = SubResource("CanvasTexture_egjju")
 
 [editable path="base_character"]

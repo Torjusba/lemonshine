@@ -10,8 +10,6 @@ const SUPER_SUSPICIOUS_DISTANCE = 5.0
 const SUPER_SUSPICIOUSNESS_PER_SECOND = 20
 const DEFAULT_SUSPICIOUSNESS_PER_SECOND = -10
 
-@onready var warning_sprite: Sprite3D = $WarningSprite
-
 var garage_gate: GarageGate = null
 var suspiciousness_pct: float = 0.0
 
@@ -40,11 +38,11 @@ func _process(delta: float) -> void:
 		level_manager.lose("You failed to hide your moonshine from the cops")
 		
 	if suspiciousness_pct >= 50:
-		warning_sprite.visible = true
-		warning_sprite.texture = RED_WARNING
+		status_sprite.visible = true
+		status_sprite.texture = RED_WARNING
 	elif suspiciousness_pct >= 10:
-		warning_sprite.visible = true
-		warning_sprite.texture = YELLOW_WARNING
+		status_sprite.visible = true
+		status_sprite.texture = YELLOW_WARNING
 	else:
-		warning_sprite.visible = false
+		status_sprite.visible = false
 		

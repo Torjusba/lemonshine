@@ -4,7 +4,7 @@ class_name LevelManager
 const POLICE_RATE: float = 0.2
 const WANTS_MOONSHINE_RATE: float = 0.5
 const BASE_CUSTOMER_DELAY = 3
-const CUSTOMER_RANDOM_DELAY = 10
+const CUSTOMER_RANDOM_DELAY = 8
 
 @onready var score_label: Label = $CanvasLayer/ScoreLabel
 @onready var customer_spawn_location: Node3D = $CustomerSpawnLocation
@@ -12,6 +12,8 @@ const CUSTOMER_RANDOM_DELAY = 10
 @onready var customer_purchase_location: Node3D = $CustomerPurchaseLocation
 
 @export var garage_gate: GarageGate
+
+@onready var camera: Camera3D = %MainSceneCamera
 
 const CustomerScene = preload("res://characters/NPCs/customer.tscn")
 const PolicemanScene = preload("res://characters/NPCs/policeman.tscn")
@@ -43,11 +45,12 @@ func spawn_new_customer() -> void:
 		new_customer = CustomerScene.instantiate()
 		new_customer.name = "Customer"
 
+	new_customer.camera = camera
 	new_customer.position = customer_spawn_location.position
 	new_customer.target_position = customer_purchase_location.position
 	new_customer.leave_position = customer_leave_location.position
 	new_customer.level_manager = self
-	new_customer.wants_moonshine = randf() >= WANTS_MOONSHINE_RATE
+	new_customer.wants_moonshine = randf() <= WANTS_MOONSHINE_RATE
 	add_child(new_customer)
 
 # Called when the node enters the scene tree for the first time.

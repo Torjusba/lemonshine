@@ -4,9 +4,12 @@ class_name Customer3D
 # Placeholders
 var leave_position: Vector3 = Vector3.ZERO
 @onready var queue_ray_cast: RayCast3D = $QueueRayCast
-@onready var wants_moonshine_sprite: Sprite3D = $WantsMoonshineSprite
+@onready var status_sprite: Sprite3D = $StatusSprite
 @onready var animation_player: AnimationPlayer = $base_character/AnimationPlayer
 
+var camera: Camera3D = null
+const WORLDSPACE_Y_OFFSET = 1.7
+const CAMERASPACE_Y_OFFSET = 0.5
 
 const SPEED = 2.0
 var target_position: Vector3 = Vector3.ZERO
@@ -50,7 +53,9 @@ func _process(delta: float) -> void:
 		animation_player.play("WalkCycle")
 		position += move_vector
 	
-	
+	if (camera):
+		var cam_up = camera.global_basis.y.normalized()
+		status_sprite.global_position = self.global_position + Vector3.UP * WORLDSPACE_Y_OFFSET + cam_up * CAMERASPACE_Y_OFFSET
 
 	if currently_carrying:
 		target_position = leave_position
@@ -58,11 +63,11 @@ func _process(delta: float) -> void:
 	if position.distance_to(target_position) <= 0.1:
 		rotation_degrees.y = -90
 		if wants_moonshine:
-			wants_moonshine_sprite.visible = true
+			status_sprite.visible = true
 		
 	else:
 		rotation_degrees.y = 0
-		wants_moonshine_sprite.visible = false
+		status_sprite.visible = false
 
 	
 	if position.distance_to(leave_position) <= 1.0:
