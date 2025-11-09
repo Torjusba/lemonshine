@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c5xmp4jh8oiey" path="res://map/map.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cx5vl7c3gps0n" path="res://workstations/coffee_maker.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c2pgi1vch068a" path="res://jail_cell_background.png" id="7_efxa6"]
-[ext_resource type="PackedScene" uid="uid://b53w5u8j4chgh" path="res://workstations/trash_can.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" path="res://workstations/trash_can.tscn" id="9_4c57u"]
 [ext_resource type="Script" uid="uid://xpsy6q7orpdd" path="res://level_manager.gd" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b667gfgpu5smh" path="res://map/garage/garage_button.tscn" id="10_4c57u"]
-[ext_resource type="PackedScene" uid="uid://dpwot1utup8mb" path="res://workstations/item_barrel.tscn" id="11_ycdy4"]
+[ext_resource type="PackedScene" path="res://workstations/item_barrel.tscn" id="11_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://b3ncbc5od4dfj" path="res://ingredients/needs_coffee.png" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://83lv26pm1bo1" path="res://ingredients/coffee_beans.tscn" id="13_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://20xdd5h4oe5i" path="res://ingredients/needs_water.png" id="14_vivmo"]
@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6690512, 0)
 shape = SubResource("WorldBoundaryShape3D_ig7tw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.88748586, 0.46083495, 0, -0.46083495, 0.88748586, 4.3873568, 5.6678643, 7.8876534)
+transform = Transform3D(-3.7855173e-08, 0.8428377, -0.53816783, 2.1855685e-08, 0.53816783, 0.8428377, 1, 2.0143741e-08, -3.879323e-08, -3.6126432, 6.6678643, -3.1123466)
 size = 9.039969
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
