@@ -20,11 +20,11 @@ var action_was_down: bool = false
 func _process(delta: float) -> void:
 	var action_input = Input.get_action_strength("player1_action")
 	var action_is_down: bool = action_input > 0.5
-	
+
 	is_attempting_action = action_is_down and not action_was_down
-	
+
 	action_was_down = action_is_down
-	
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -34,7 +34,23 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("player1_left", "player1_right", "player1_up", "player1_down")
-	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+
+	# Get camera directions for relative movement
+	var camera_forward = -%MainSceneCamera.global_transform.basis.z
+	var camera_right = %MainSceneCamera.global_transform.basis.x
+
+	# Project camera directions onto the horizontal plane
+	camera_forward.y = 0
+	camera_right.y = 0
+	camera_forward = camera_forward.normalized()
+	camera_right = camera_right.normalized()
+
+	# Calculate movement direction relative to camera
+	var direction: Vector3
+	if input_dir.length() > 0:
+		direction = (camera_right * input_dir.x + camera_forward * -input_dir.y).normalized()
+	else:
+		direction = Vector3.ZERO
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
