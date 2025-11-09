@@ -51,15 +51,17 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0.48
 
 [node name="NeedsWaterSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51039445, 1.2893803, 0)
-pixel_size = 0.05
+pixel_size = 0.005
 billboard = 1
+fixed_size = true
 texture_filter = 0
 texture = ExtResource("3_uyjwf")
 
 [node name="NeedsCoffeeSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522388, 1.2893803, 0)
-pixel_size = 0.05
+pixel_size = 0.005
 billboard = 1
+fixed_size = true
 texture_filter = 0
 texture = ExtResource("4_ip17r")
 
