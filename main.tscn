@@ -154,7 +154,7 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.690804, 0.08902788, 2.8450108)
 
 [node name="GarageButton" parent="." node_paths=PackedStringArray("garage_gate") instance=ExtResource("10_4c57u")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.1464176, 0.58152825, -1.6307678)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.8354375, 0.58152825, -3.0279906)
 garage_gate = NodePath("../cooking_map/garage_gate")
 
 [node name="CoffeeBeansItemBarrel" parent="." instance=ExtResource("11_ycdy4")]

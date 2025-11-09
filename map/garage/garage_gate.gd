@@ -1,18 +1,19 @@
 extends Node3D
 class_name GarageGate
 
+const ANIMATION_NAME: String = "Armature_001Action"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var is_open: bool = false
-@onready var collision_shape_3d: CollisionShape3D = $Armature/Skeleton3D/StaticBody3D/CollisionShape3D
+@onready var collision_shape_3d: CollisionShape3D = $"Armature_Skeleton3D#StaticBody3D/CollisionShape3D"
 
 func open() -> void:
 	if not is_open:
-		animation_player.play("ArmatureAction")
+		animation_player.play(ANIMATION_NAME)
 		collision_shape_3d.disabled = true
 
 func close() -> void:
 	if is_open:
-		animation_player.play_backwards("ArmatureAction")
+		animation_player.play_backwards(ANIMATION_NAME)
 		# don't re-enable the collision here, we do that when
 		# the animation is finished
 
