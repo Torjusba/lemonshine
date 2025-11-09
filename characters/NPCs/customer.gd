@@ -36,11 +36,16 @@ func purchase(item: Item3D, price: int) -> void:
 	currently_carrying = item
 	
 	level_manager.add_payment(price if got_what_they_want else 1)
+	if got_what_they_want:
+		_on_wait_after_purchase_timer_timeout()
+	else:
+		$WaitAfterPurchaseTimer.start(2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
+var current_animation_name: String = "Idle"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var to_move_this_tick = delta * SPEED
@@ -52,20 +57,18 @@ func _process(delta: float) -> void:
 		move_vector = Vector3.ZERO
 		
 	if move_vector.is_zero_approx():
-		animation_player.play("Idle")
+		current_animation_name = "Idle"
 	else:
-		if is_unhappy:
-			animation_player.play("ShakeHead")
-		else:
-			animation_player.play("WalkCycle")
+		current_animation_name = "WalkCycle"
 		position += move_vector
-	
+
+	if is_unhappy:
+		current_animation_name = "ShakeHead"
+	animation_player.play(current_animation_name)
+
 	if (camera):
 		var cam_up = camera.global_basis.y.normalized()
 		status_sprite.global_position = self.global_position + Vector3.UP * WORLDSPACE_Y_OFFSET + cam_up * CAMERASPACE_Y_OFFSET
-
-	if currently_carrying:
-		target_position = leave_position
 
 	if position.distance_to(target_position) <= 0.1:
 		rotation_degrees.y = -90
@@ -79,3 +82,7 @@ func _process(delta: float) -> void:
 	
 	if position.distance_to(leave_position) <= 1.0:
 		queue_free()
+
+
+func _on_wait_after_purchase_timer_timeout() -> void:
+	target_position = leave_position

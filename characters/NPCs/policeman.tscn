@@ -38,4 +38,6 @@ pixel_size = 0.007
 billboard = 1
 texture = ExtResource("3_egjju")
 
+[node name="WaitAfterPurchaseTimer" type="Timer" parent="."]
+
 [editable path="base_character"]
