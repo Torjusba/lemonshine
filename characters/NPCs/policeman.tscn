@@ -24,13 +24,20 @@ target_position = Vector3(-2, 0, 0)
 [node name="base_character" parent="." instance=ExtResource("1_m7br2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
+[node name="Skeleton3D" parent="base_character/Armature" index="0"]
+bones/0/rotation = Quaternion(0, 0.7071068, 0, 0.7071068)
+bones/2/position = Vector3(8.6544404e-08, 0.04783413, -0.5257202)
+bones/2/rotation = Quaternion(-0.98994404, -1.00473336e-07, -2.468599e-07, 0.14146008)
+bones/7/position = Vector3(-1.11215975e-07, 0.0478341, 0.52572024)
+bones/7/rotation = Quaternion(8.543888e-08, 0.14146008, 0.98994404, -3.6204778e-08)
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="base_character/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-1.1920929e-07, 0, 1, 0, 0.99999994, 0, -1, 0, -1.1920929e-07, 3.632164e-22, 0.4303374, -3.632164e-22)
-bone_name = "Bone.001"
-bone_idx = 1
+transform = Transform3D(-1.1920929e-07, 0, 1, 0, 0.99999994, 0, -1, 0, -1.1920929e-07, 2.5400574e-22, 0.9287161, -2.5400574e-22)
+bone_name = "Bone.002"
+bone_idx = 4
 
 [node name="police_hat" parent="base_character/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_rlgyh")]
-transform = Transform3D(-1.1920929e-07, 0, -1, 0, 1.0000001, 0, 1, 0, -1.1920929e-07, -3.6321638e-22, 0.9494919, -3.6321643e-22)
+transform = Transform3D(-1.1920929e-07, 0, -1, 0, 1.0000001, 0, 1, 0, -1.1920929e-07, -3.6321635e-22, 0.4494921, -3.6321645e-22)
 
 [node name="StatusSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.0020158887, 2.3902256, 0.010101795)
