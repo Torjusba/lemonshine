@@ -1,17 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://83lv26pm1bo1"]
+[gd_scene load_steps=3 format=3 uid="uid://83lv26pm1bo1"]
 
-[ext_resource type="Script" uid="uid://cblm72oakm64s" path="res://coffee_beans.gd" id="1_4r1si"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yplc"]
-albedo_color = Color(0.29, 0.232145, 0.1073, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0yplc"]
-material = SubResource("StandardMaterial3D_0yplc")
-size = Vector3(0.2, 0.2, 0.2)
+[ext_resource type="Script" uid="uid://cblm72oakm64s" path="res://ingredients/coffee_beans.gd" id="1_4r1si"]
+[ext_resource type="PackedScene" uid="uid://bex34081gqo0e" path="res://workstations/carriable/coffe_bag.blend" id="2_xt15p"]
 
 [node name="CoffeeBeans" type="Node3D"]
 script = ExtResource("1_4r1si")
 metadata/_custom_type_script = "uid://clu5qxqpx4nwm"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_0yplc")
+[node name="coffe_bag" parent="." instance=ExtResource("2_xt15p")]
+transform = Transform3D(-1.3113416e-08, 0, -0.29999998, 0, 0.29999998, 0, 0.29999998, 0, -1.3113416e-08, 0, 0, 0)
